@@ -10,6 +10,16 @@ mod add_mod {
     }
 }
 
+// 添加单元测试
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        let result = 2 + 2;
+        assert_eq!(result, 4);
+    }
+}
+
 // 包含其他文件为 mod
 mod control_flow;
 mod function;
