@@ -2,7 +2,15 @@
 include!("data_structure.rs");
 include!("match.rs");
 
-// 使用 mod 来包含其他文件
+// 定义 mod
+mod add_mod {
+    // 定义函数
+    pub fn add(a: i32, b: i32) -> i32 {
+        a + b
+    }
+}
+
+// 包含其他文件为 mod
 mod control_flow;
 mod function;
 
@@ -21,8 +29,12 @@ fn main() {
     static static_p: f64 = 3.1415926;
     static V: Vec<u8> = Vec::new();
 
+    // 模块
+    println!("\n>>> Add mod start...");
+    println!("add mod test: {}", add_mod::add(1, 2));
+
     // 函数
-    println!("\nFunction start...");
+    println!("\n>>> Function start...");
     println!("apply square: {}", function::apply(2, function::square));
     println!("apply cube: {}", function::apply(2, function::cube));
 
@@ -40,7 +52,7 @@ fn main() {
 
     // 控制流
     let n = 10;
-    println!("\nControl flow start...");
+    println!("\n>>> Control flow start...");
     control_flow::fib_loop(n);
     control_flow::fib_while(n);
     control_flow::fib_for(n);
@@ -68,14 +80,14 @@ fn main() {
     let event2 = Event::Join(bob.id, topic.id);
     let event3 = Event::Message(alice.id, topic.id, "Hello, world!".into());
 
-    println!("\nData structure start...");
+    println!("\n>>> Data structure start...");
     println!(
         "event1: {:?}, event2: {:?}, event3: {:?}",
         event1, event2, event3
     );
 
     // 模式匹配
-    println!("\nMatch start...");
+    println!("\n>>> Match start...");
     process_event(&event1);
     process_message(&event3);
 }
