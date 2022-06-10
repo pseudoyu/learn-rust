@@ -1,5 +1,5 @@
 // loop 循环
-fn fib_loop(n: u8) {
+pub fn fib_loop(n: u8) {
     let mut a = 1;
     let mut b = 1;
     let mut i = 2u8;
@@ -23,7 +23,7 @@ fn fib_loop(n: u8) {
 
 // while 循环
 
-fn fib_while(n: u8) {
+pub fn fib_while(n: u8) {
     let (mut a, mut b, mut i) = (1, 1, 2u8);
 
     println!("\nfib_while start...");
@@ -39,7 +39,7 @@ fn fib_while(n: u8) {
 
 // for 循环
 // 可以用于任何实现了 IntoIterator trait 的数据结构
-fn fib_for(n: u8) {
+pub fn fib_for(n: u8) {
     let (mut a, mut b) = (1, 1);
 
     println!("\nfib_for start...");

@@ -1,7 +1,10 @@
-include!("function.rs");
+// 使用 include 宏来包含其他文件
 include!("data_structure.rs");
-include!("control_flow.rs");
 include!("match.rs");
+
+// 使用 mod 来包含其他文件
+mod control_flow;
+mod function;
 
 fn main() {
     // 变量与函数
@@ -12,22 +15,22 @@ fn main() {
     let mut v: Vec<u8> = Vec::new();
 
     // 常量，全局可访问
-    const PI: f64 = 3.1415926;
+    const CONST_PI: f64 = 3.1415926;
 
     // 静态变量，也全局可访问，可声明可变
-    static p: f64 = 3.1415926;
+    static static_p: f64 = 3.1415926;
     static V: Vec<u8> = Vec::new();
 
     // 函数
     println!("\nFunction start...");
-    println!("apply square: {}", apply(2, square));
-    println!("apply cube: {}", apply(2, cube));
+    println!("apply square: {}", function::apply(2, function::square));
+    println!("apply cube: {}", function::apply(2, function::cube));
 
     // 函数类型与返回值
-    let is_pi = pi();
-    let is_unit_1 = not_pi();
+    let is_pi = function::pi();
+    let is_unit_1 = function::not_pi();
     let is_unit_2 = {
-        pi();
+        function::pi();
     };
 
     println!(
@@ -38,9 +41,9 @@ fn main() {
     // 控制流
     let n = 10;
     println!("\nControl flow start...");
-    fib_loop(n);
-    fib_while(n);
-    fib_for(n);
+    control_flow::fib_loop(n);
+    control_flow::fib_while(n);
+    control_flow::fib_for(n);
 
     // 数据结构
     let alice = User {
