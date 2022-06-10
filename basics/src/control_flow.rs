@@ -6,11 +6,8 @@ pub fn fib_loop(n: u8) {
 
     println!("\nfib_loop start...");
     loop {
-        let c = a + b;
-        a = b;
-        b = c;
+        next_fib(&mut a, &mut b);
         i += 1;
-
         println!("next fibonacci number: {}", b);
 
         // 条件分支
@@ -28,11 +25,8 @@ pub fn fib_while(n: u8) {
 
     println!("\nfib_while start...");
     while i < n {
-        let c = a + b;
-        a = b;
-        b = c;
+        next_fib(&mut a, &mut b);
         i += 1;
-
         println!("next fibonacci number: {}", b);
     }
 }
@@ -50,9 +44,13 @@ pub fn fib_for(n: u8) {
     // arr[..]
     // arr[0..=1]
     for _i in 2..n {
-        let c = a + b;
-        a = b;
-        b = c;
+        next_fib(&mut a, &mut b);
         println!("next fibonacci number: {}", b);
     }
+}
+
+fn next_fib(a: &mut i32, b: &mut i32) {
+    let c = *a + *b;
+    *a = *b;
+    *b = c;
 }
