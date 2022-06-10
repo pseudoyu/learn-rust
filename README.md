@@ -24,17 +24,17 @@ cargo build --release
 ```
 
 ### Add dependency
-#### cargo-edit
-
-```bash
-cargo install cargo-edit
-cargo add anyhow colored jsonxf mime
-```
 
 #### Edit `Cargo.toml`
 
 ```toml
 [dependencies]
 anyhow = "1"
-...
+```
+
+#### cargo-edit
+
+```bash
+cargo install cargo-edit
+cargo add anyhow colored jsonxf mime
 ```
