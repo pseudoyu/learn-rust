@@ -1,30 +1,23 @@
-// 变量与函数
-
-// 函数可以作为参数或者返回值
-fn apply(value: i32, f: fn(i32) -> i32) -> i32 {
-    f(value)
-}
-
-fn square(value: i32) -> i32 {
-    value * value
-}
-
-fn cube(value: i32) -> i32 {
-    value * value * value
-}
-
-// 如果最后一个表达式没有以 ; 结尾，那么最后一个表达式就是它的返回值，如果在函数中需要提前返回则使用 return
-fn pi() -> f64 {
-    3.1415926
-}
-
-// 如果以 ; 结尾则返回 unit
-fn not_pi() {
-    3.1415926;
-}
+include!("function.rs");
+include!("data_structure.rs");
 
 fn main() {
     // 变量与函数
+
+    // 默认不可变
+    let name = "Yu";
+
+    // 通过 mut 关键字声明可变变量
+    let mut v: Vec<u8> = Vec::new();
+
+    // 常量，全局可访问
+    const PI: f64 = 3.1415926;
+
+    // 静态变量，也全局可访问，可声明可变
+    static p: f64 = 3.1415926;
+    static V: Vec<u8> = Vec::new();
+
+    // 函数
     println!("apply square: {}", apply(2, square));
     println!("apply cube: {}", apply(2, cube));
 
@@ -38,5 +31,33 @@ fn main() {
     println!(
         "is_pi: {:?}, is_unit_1: {:?}, is_unit_2: {:?}",
         is_pi, is_unit_1, is_unit_2
+    );
+
+    // 数据结构
+    let alice = User {
+        id: UserId(1),
+        name: "Alice".into(),
+        gender: Gender::Female,
+    };
+
+    let bob = User {
+        id: UserId(2),
+        name: "Bob".into(),
+        gender: Gender::Male,
+    };
+
+    let topic = Topic {
+        id: TopicId(1),
+        name: "rust".into(),
+        owner: UserId(1),
+    };
+
+    let event1 = Event::Join(alice.id, topic.id);
+    let event2 = Event::Join(bob.id, topic.id);
+    let event3 = Event::Message(alice.id, topic.id, "Hello, world!".into());
+
+    println!(
+        "event1: {:?}, event2: {:?}, event3: {:?}",
+        event1, event2, event3
     );
 }
