@@ -1,9 +1,9 @@
 include!("function.rs");
 include!("data_structure.rs");
+include!("control_flow.rs");
 
 fn main() {
     // 变量与函数
-
     // 默认不可变
     let name = "Yu";
 
@@ -18,6 +18,7 @@ fn main() {
     static V: Vec<u8> = Vec::new();
 
     // 函数
+    println!("Function start...");
     println!("apply square: {}", apply(2, square));
     println!("apply cube: {}", apply(2, cube));
 
@@ -56,8 +57,15 @@ fn main() {
     let event2 = Event::Join(bob.id, topic.id);
     let event3 = Event::Message(alice.id, topic.id, "Hello, world!".into());
 
+    println!("Data structure start...");
     println!(
         "event1: {:?}, event2: {:?}, event3: {:?}",
         event1, event2, event3
     );
+
+    // 控制流
+    let n = 10;
+    fib_loop(n);
+    fib_while(n);
+    fib_for(n);
 }
