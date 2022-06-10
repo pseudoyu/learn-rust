@@ -60,6 +60,28 @@ fn main() {
         is_pi, is_unit_1, is_unit_2
     );
 
+    // 查找数组位置
+    println!("\n>>> Find pos start...");
+    let data = vec![10, 42, 9, 8];
+    let v = 42;
+    if let Some(pos) = function::find_pos(data, v) {
+        println!("{} is at position {}", v, pos);
+    }
+
+    // 数组求和
+    let data1 = vec![1, 2, 3, 4];
+
+    // 使用 clone 方法复制一个新的数组
+    let data2 = data1.clone();
+
+    // 通过借用访问数组
+    let data3 = &data1;
+
+    println!("\n>>> Vec sum start...");
+    println!("sum of data 2: {}", function::sum(data2.clone()));
+    println!("data2: {:?}", data2);
+    println!("sum of data1: {}", function::sum(data1));
+
     // 控制流
     let n = 10;
     println!("\n>>> Control flow start...");

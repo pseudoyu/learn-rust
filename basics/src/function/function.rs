@@ -20,3 +20,16 @@ pub fn pi() -> f64 {
 pub fn not_pi() {
     3.1415926;
 }
+
+pub fn find_pos(data: Vec<u32>, v: u32) -> Option<usize> {
+    for (pos, item) in data.iter().enumerate() {
+        if *item == v {
+            return Some(pos);
+        }
+    }
+    None
+}
+
+pub fn sum(data: Vec<u32>) -> u32 {
+    data.iter().fold(0, |acc, x| acc + x)
+}
