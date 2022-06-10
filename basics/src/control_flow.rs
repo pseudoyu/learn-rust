@@ -4,7 +4,7 @@ fn fib_loop(n: u8) {
     let mut b = 1;
     let mut i = 2u8;
 
-    println!("fib_loop start...");
+    println!("\nfib_loop start...");
     loop {
         let c = a + b;
         a = b;
@@ -26,7 +26,7 @@ fn fib_loop(n: u8) {
 fn fib_while(n: u8) {
     let (mut a, mut b, mut i) = (1, 1, 2u8);
 
-    println!("fib_while start...");
+    println!("\nfib_while start...");
     while i < n {
         let c = a + b;
         a = b;
@@ -42,7 +42,7 @@ fn fib_while(n: u8) {
 fn fib_for(n: u8) {
     let (mut a, mut b) = (1, 1);
 
-    println!("fib_for start...");
+    println!("\nfib_for start...");
 
     // 2..n 是 Range 操作，包含 2 <= x < n 的所有值
     // 不支持负数
