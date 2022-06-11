@@ -2,6 +2,7 @@
 include!("data_structure.rs");
 include!("match.rs");
 include!("dag.rs");
+include!("life_cycle.rs");
 
 // 定义 mod
 mod add_mod {
@@ -110,6 +111,13 @@ fn main() {
     }
     println!("\n>>>Borrow_mut Start...");
     println!("data: {}", data.borrow());
+
+    // 生命周期
+    println!("\n>>> Life Cycle start...");
+    let s = "hello world".to_owned();
+    let mut s1 = s.as_str();
+    let hello = strtok(&mut s1, ' ');
+    println!("hello is: {}, s1: {}, s: {}", hello, s1, s);
 
     // 控制流
     let n = 10;
