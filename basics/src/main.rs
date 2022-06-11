@@ -1,6 +1,7 @@
 // 使用 include 宏来包含其他文件
 include!("data_structure.rs");
 include!("match.rs");
+include!("dag.rs");
 
 // 定义 mod
 mod add_mod {
@@ -81,6 +82,19 @@ fn main() {
     println!("sum of data 2: {}", function::sum(data2.clone()));
     println!("data2: {:?}", data2);
     println!("sum of data1: {}", function::sum(data1));
+
+    // DAG 实现
+    println!("\n>>> DAG start...");
+    let mut node1 = Node::new(1);
+    let mut node2 = Node::new(2);
+    let mut node3 = Node::new(3);
+    let node4 = Node::new(4);
+    node3.update_downstream(Rc::new(node4));
+
+    node1.update_downstream(Rc::new(node3));
+    node2.update_downstream(node1.get_downstream().unwrap());
+
+    println!("node1: {:?}\nnode2: {:?}", node1, node2);
 
     // 控制流
     let n = 10;
