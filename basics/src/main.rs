@@ -173,6 +173,11 @@ fn main() {
     println!("output: {:?}", &c1 + &c2);
     println!("output: {:?}", &c1 + 5.0);
     println!("output: {:?}", c1 + c2);
+
+    // 子类型多态
+    println!("\n>>> Subtype polymorphism start...");
+    let cat = Cat;
+    println!("cat: {}", get_name(cat));
 }
 
 // 测试，使用 `cargo test` 执行

@@ -42,3 +42,27 @@ where
         }
     }
 }
+
+// 子类型多态
+struct Cat;
+struct Dog;
+
+trait Animal {
+    fn get_name(&self) -> &'static str;
+}
+
+fn get_name(animal: impl Animal) -> &'static str {
+    animal.get_name()
+}
+
+impl Animal for Cat {
+    fn get_name(&self) -> &'static str {
+        "Cat"
+    }
+}
+
+impl Animal for Dog {
+    fn get_name(&self) -> &'static str {
+        "Dog"
+    }
+}
