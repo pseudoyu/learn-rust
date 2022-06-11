@@ -9,20 +9,6 @@ Notes, demo projects related to Rust learning
 cargo new <project-name>
 ```
 
-### Run project
-
-```bash
-cargo run
-```
-
-### Build project
-
-```bash
-cargo build
-cargo build --quiet
-cargo build --release
-```
-
 ### Add dependency
 
 #### Edit `Cargo.toml`
@@ -37,4 +23,24 @@ anyhow = "1"
 ```bash
 cargo install cargo-edit
 cargo add anyhow colored jsonxf mime
+```
+
+### Run project
+
+```bash
+cargo run
+```
+
+### Build project
+
+```bash
+cargo build
+cargo build --quiet
+cargo build --release
+```
+
+### Test project
+
+```bash
+cargo test
 ```
