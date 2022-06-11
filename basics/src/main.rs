@@ -3,6 +3,7 @@ include!("data_structure.rs");
 include!("match.rs");
 include!("dag.rs");
 include!("life_cycle.rs");
+include!("trait.rs");
 
 // 定义 mod
 mod add_mod {
@@ -159,4 +160,8 @@ fn main() {
     println!("\n>>> Match start...");
     process_event(&event1);
     process_message(&event3);
+
+    // 实现 trait
+    println!("\n>>> Trait start...");
+    println!("result: {}", u8::parse("255 hello world"));
 }
