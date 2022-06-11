@@ -40,3 +40,14 @@ impl Add for &Complex {
         Complex::new(real, imagine)
     }
 }
+
+// 实现 Add trait，实数与复数相加
+impl Add<f64> for &Complex {
+    type Output = Complex;
+
+    fn add(self, rhs: f64) -> Self::Output {
+        let real = self.real + rhs;
+        let imagine = self.imagine;
+        Complex::new(real, imagine)
+    }
+}
