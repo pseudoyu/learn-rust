@@ -5,6 +5,7 @@ include!("dag.rs");
 include!("life_cycle.rs");
 include!("trait.rs");
 include!("complex_add.rs");
+include!("dynamic_dispatching.rs");
 
 // 定义 mod
 mod add_mod {
@@ -178,6 +179,16 @@ fn main() {
     println!("\n>>> Subtype polymorphism start...");
     let cat = Cat;
     println!("cat: {}", get_name(cat));
+
+    // 动态分派
+    println!("\n>>> Dynamic dispatching start...");
+    let mut text = "Hello world!".to_string();
+    let rust: &dyn Formatter = &RustFormatter;
+    let html: &dyn Formatter = &HtmlFormatter;
+    let formatters = vec![rust, html];
+    format(&mut text, formatters);
+
+    println!("text: {}", text);
 }
 
 // 测试，使用 `cargo test` 执行
