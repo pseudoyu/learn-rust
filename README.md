@@ -1,5 +1,5 @@
 # learn-rust
-Notes, demo projects related to Rust learning
+Notes and demo code related to Rust learning
 
 ## cargo commands
 

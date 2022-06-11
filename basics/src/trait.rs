@@ -2,7 +2,10 @@ use regex::Regex;
 use std::str::FromStr;
 
 trait Parse {
-    fn parse(s: &str) -> Self;
+    type Error;
+    fn parse(s: &str) -> Result<Self, Self::Error>
+    where
+        Self: Sized;
 }
 
 // impl Parse for u8 {
@@ -23,15 +26,19 @@ impl<T> Parse for T
 where
     T: FromStr + Default,
 {
-    fn parse(s: &str) -> Self {
+    type Error = String;
+    fn parse(s: &str) -> Result<Self, Self::Error> {
         let re: Regex = Regex::new(r"^[0-9]+(\.[0-9]+)?").unwrap();
-        let d = || Default::default();
         if let Some(captures) = re.captures(s) {
             captures
                 .get(0)
-                .map_or(d(), |s| s.as_str().parse().unwrap_or(d()))
+                .map_or(Err("failed to capture".to_string()), |s| {
+                    s.as_str()
+                        .parse()
+                        .map_err(|_err| "failed to capture".to_string())
+                })
         } else {
-            d()
+            Err("failed to capture".to_string())
         }
     }
 }

@@ -163,14 +163,17 @@ fn main() {
 
     // 实现 trait
     println!("\n>>> Trait start...");
-    println!("result: {}", u8::parse("255 hello world"));
+    println!("result: {:?}", u8::parse("255 hello world"));
 }
 
 // 测试，使用 `cargo test` 执行
 #[test]
 fn parse_test() {
-    assert_eq!(u32::parse("123abcd"), 123);
-    assert_eq!(u32::parse("123.45abcd"), 0);
-    assert_eq!(f64::parse("123.45abcd"), 123.45);
-    assert_eq!(f64::parse("abcd"), 0f64);
+    assert_eq!(u32::parse("123abcd"), Ok(123));
+    assert_eq!(
+        u32::parse("123.45abcd"),
+        Err("failed to capture".to_string().into())
+    );
+    assert_eq!(f64::parse("123.45abcd"), Ok(123.45));
+    assert!(f64::parse("abcd").is_err());
 }
