@@ -170,7 +170,8 @@ fn main() {
     println!("\n>>> Complex Add start...");
     let c1 = Complex::new(1.0, 1f64);
     let c2 = Complex::new(2 as f64, 3.0);
-    println!("output: {:?}", Complex::add(c1, c2));
+    println!("output: {:?}", &c1 + &c2);
+    println!("output: {:?}", c1 + c2);
 }
 
 // 测试，使用 `cargo test` 执行
