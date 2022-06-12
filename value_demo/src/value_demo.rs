@@ -27,7 +27,7 @@ pub fn value_demo() {
     // multithreading
     let mut data = vec![1, 2, 3];
 
-    // thread::spawn(|| {
+    // thread::spawn(move || {
     //     data.push(5);
     // });
 
