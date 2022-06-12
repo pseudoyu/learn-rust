@@ -7,6 +7,7 @@ Notes and demo code related to Rust learning
 
 ```bash
 cargo new <project-name>
+cargo new <lib-name> --lib
 ```
 
 ### Add dependency
