@@ -1,7 +1,23 @@
 # learn-rust
 Notes and demo code related to Rust learning
 
-## cargo commands
+## cargo usage
+
+### Init workflow
+
+#### Create and edit `Cargo.toml`
+
+```toml
+[workspace]
+
+members = [
+    "basics",
+    "value_demo",
+    "persist_data",
+    "scrape_url",
+    "httpie"
+]
+```
 
 ### Init project
 
