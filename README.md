@@ -3,7 +3,7 @@ Notes and demo code related to Rust learning
 
 ## cargo usage
 
-### Init workflow
+### Init workspace
 
 #### Create and edit `Cargo.toml`
 
