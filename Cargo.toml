@@ -6,5 +6,6 @@ members = [
     "persist_data",
     "scrape_url",
     "httpie",
-    "ticket"
+    "ticket",
+    "fib_demo",
 ]
