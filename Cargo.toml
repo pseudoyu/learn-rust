@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "basics",
+    "value_demo",
+    "persist_data",
+    "scrape_url",
+    "httpie"
+]
