@@ -54,3 +54,12 @@ fn next_fib(a: &mut i32, b: &mut i32) {
     *a = *b;
     *b = c;
 }
+
+pub fn run() {
+    // 控制流
+    let n = 10;
+    println!("\n>>> Control flow start...");
+    fib_loop(n);
+    fib_while(n);
+    fib_for(n);
+}

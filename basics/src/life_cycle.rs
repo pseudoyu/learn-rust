@@ -10,3 +10,12 @@ fn strtok<'a>(s: &mut &'a str, delimiter: char) -> &'a str {
         prefix
     }
 }
+
+pub fn run() {
+    // 生命周期
+    println!("\n>>> Life Cycle start...");
+    let s = "hello world".to_owned();
+    let mut s1 = s.as_str();
+    let hello = strtok(&mut s1, ' ');
+    println!("hello is: {}, s1: {}, s: {}", hello, s1, s);
+}

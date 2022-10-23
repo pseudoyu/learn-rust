@@ -6,3 +6,4 @@ pub use function::not_pi;
 pub use function::pi;
 pub use function::square;
 pub use function::sum;
+pub use function::run;

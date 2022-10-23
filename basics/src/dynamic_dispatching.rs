@@ -23,3 +23,15 @@ fn format(input: &mut String, formatters: Vec<&dyn Formatter>) {
         formatter.format(input);
     }
 }
+
+pub fn run() {
+    // 动态分派
+    println!("\n>>> Dynamic dispatching start...");
+    let mut text = "Hello world!".to_string();
+    let rust: &dyn Formatter = &RustFormatter;
+    let html: &dyn Formatter = &HtmlFormatter;
+    let formatters = vec![rust, html];
+    format(&mut text, formatters);
+
+    println!("text: {}", text);
+}
