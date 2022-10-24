@@ -1,9 +1,9 @@
 // 使用 include 宏来包含其他文件
-include!("variables.rs");
 include!("test.rs");
 
 // 使用 mod 来包含其他文件
 mod print;
+mod variables;
 mod control_flow;
 mod function;
 mod dag;
@@ -16,7 +16,10 @@ mod add_mod;
 
 fn main() {
 
-    // 测试模块
+    // 测试 Variables
+    variables::run();
+
+    // 测试 mod
     add_mod::run();
 
     // 测试 Print
