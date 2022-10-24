@@ -24,5 +24,9 @@ pub fn run() {
     let is_active: bool = true;
     let is_greater: bool = 10 > 5;
 
-    println!("{:?}", (x, y, z, is_active));
+    let a1 = 'a';
+    let face = '\u{1F600}';
+
+    println!("{:?}", (x, y, z, is_active, is_greater));
+    println!("{:?}", (a1, face));
 }

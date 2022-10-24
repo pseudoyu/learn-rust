@@ -1,3 +1,54 @@
+pub fn run() {
+
+    let mut count = 0;
+
+    // Infinite Loop
+    loop {
+        count += 1;
+        println!("Number: {}", count);
+
+        if count == 20 {
+            break;
+        }
+    }
+
+    // While Loop (FizzBuzz)
+    while count <= 100 {
+        if count % 15 == 0 {
+            println!("fizzbuzz");
+        } else if count % 3 == 0 {
+            println!("fizz");
+        } else if count % 5 == 0 {
+            println!("buzz");
+        } else {
+            println!("{}", count);
+        }
+
+        // Inc
+        count += 1;
+    }
+
+    // For Range
+    for x in 0..100 {
+        if x % 15 == 0 {
+            println!("fizzbuzz");
+        } else if x % 3 == 0 {
+            println!("fizz");
+        } else if x % 5 == 0 {
+            println!("buzz");
+        } else {
+            println!("{}", x);
+        }
+    }
+
+
+    // 控制流
+    let n = 10;
+    fib_loop(n);
+    fib_while(n);
+    fib_for(n);
+}
+
 // loop 循环
 pub fn fib_loop(n: u8) {
     let mut a = 1;
@@ -53,13 +104,4 @@ fn next_fib(a: &mut i32, b: &mut i32) {
     let c = *a + *b;
     *a = *b;
     *b = c;
-}
-
-pub fn run() {
-    // 控制流
-    let n = 10;
-    println!("\n>>> Control flow start...");
-    fib_loop(n);
-    fib_while(n);
-    fib_for(n);
 }

@@ -34,11 +34,19 @@ pub fn sum(data: Vec<u32>) -> u32 {
     data.iter().fold(0, |acc, x| acc + x)
 }
 
+fn add_sum(n1: i32, n2: i32) -> i32 {
+    n1 + n2
+}
+
 pub fn run() {
     // 函数
-    println!("\n>>> Function start...");
     println!("apply square: {}", apply(2, square));
     println!("apply cube: {}", apply(2, cube));
+
+    // 闭包
+    let n3 = 10;
+    let add_nums = |n1: i32, n2: i32| n1 + n2 + n3;
+    println!("C sum: {}", add_nums(3, 3));
 
     // 函数类型与返回值
     let is_pi = pi();
@@ -69,7 +77,6 @@ pub fn run() {
     // 通过借用访问数组
     let data3 = &data1;
 
-    println!("\n>>> Vec sum start...");
     println!("sum of data 2: {}", sum(data2.clone()));
     println!("data2: {:?}", data2);
     println!("sum of data1: {}", sum(data1));

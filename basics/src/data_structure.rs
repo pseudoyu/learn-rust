@@ -58,8 +58,70 @@ fn process_message(event: &Event) {
     }
 }
 
+// Traditional Struct
+struct Color {
+    red: u8,
+    green: u8,
+    blue: u8,
+}
+
+// Tuple Struct
+struct ColorTuple(u8, u8, u8);
+
+struct Person {
+    first_name: String,
+    last_name: String,
+}
+
+impl Person {
+    // Construct person
+    fn new(first: &str, last: &str) -> Person {
+        Person {
+            first_name: first.to_string(),
+            last_name: last.to_string(),
+        }
+    }
+
+    // Get full name
+    fn full_name(&self) -> String {
+        format!("{} {}", self.first_name, self.last_name)
+    }
+
+    // Set last name
+    fn set_last_name(&mut self, last: &str) {
+        self.last_name = last.to_string();
+    }
+
+    // Name to tuple
+    fn to_tuple(self) -> (String, String) {
+        (self.first_name, self.last_name)
+    }
+}
+    
 pub fn run() {
-    // 数据结构
+    // Traditional Struct
+    let mut c = Color {
+        red: 255,
+        green: 0,
+        blue: 0,
+    };
+
+    c.red = 200;
+    println!("Color: {} {} {}", c.red, c.green, c.blue);
+
+    // Tuple Struct
+    let mut ct = ColorTuple(255, 0, 0);
+    ct.0 = 200;
+    println!("Color: {} {} {}", ct.0, ct.1, ct.2);
+
+    // Person
+    let mut p = Person::new("Yu", "ZHANG");
+    println!("Person {} {}", p.first_name, p.last_name);
+    p.set_last_name("Zhang");
+    println!("Person {}", p.full_name());
+    println!("{:?}", p.to_tuple());
+
+    // Example
     let alice = User {
         id: UserId(1),
         name: "Alice".into(),
@@ -82,14 +144,12 @@ pub fn run() {
     let event2 = Event::Join(bob.id, topic.id);
     let event3 = Event::Message(alice.id, topic.id, "Hello, world!".into());
 
-    println!("\n>>> Data structure start...");
     println!(
         "event1: {:?}, event2: {:?}, event3: {:?}",
         event1, event2, event3
     );
 
     // 模式匹配
-    println!("\n>>> Match start...");
     process_event(&event1);
     process_message(&event3);
 }
